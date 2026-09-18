@@ -33,9 +33,6 @@ Eco Clean Solar Solutions is a website for a solar panel cleaning and maintenanc
 - Updated content with images and better headings
 - Updated README.md
 
-## Sitemap
-Sitemap location: /sitemap.xml
-Contains all 5 pages: index, about, services, guides, contact
 
 ## How to Run Website
 1. Download or clone repo

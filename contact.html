@@ -4,154 +4,509 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Request Quote - EcoClean Solar Solutions</title>
+    
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         :root {
-            --primary: #0e8388;
-            --secondary: #f2a900;
-            --dark: #1b262c;
-            --light: #f4f7f4;
+            --primary: #00b4d8;
+            --primary-dark: #0077b6;
+            --secondary: #ffb703;
+            --secondary-hover: #fb8500;
+            --dark: #0f172a;
+            --dark-card: #1e293b;
+            --light: #f8fafc;
             --white: #ffffff;
+            --text-muted: #64748b;
+            --border-color: rgba(226, 232, 240, 0.8);
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             background-color: var(--light);
             color: var(--dark);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
+        /* --- Header --- */
         header {
-            background-color: var(--dark);
+            background-color: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             color: var(--white);
-            padding: 1rem 5%;
+            padding: 1.1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 0.8rem 5%;
+            background-color: rgba(15, 23, 42, 0.95);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         .logo {
             font-size: 1.5rem;
-            font-weight: bold;
+            font-weight: 800;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-icon {
             color: var(--secondary);
+            font-size: 1.6rem;
+            filter: drop-shadow(0 0 8px rgba(255, 183, 3, 0.5));
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
         }
 
         nav a {
-            color: var(--white);
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
-            margin-left: 1.5rem;
             font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.2rem 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        nav a:hover::after, nav a.active::after {
+            width: 100%;
         }
 
         nav a:hover, nav a.active {
-            color: var(--secondary);
+            color: var(--white);
         }
 
+        /* Mobile Hamburger Icon */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background-color: var(--white);
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .hamburger.is-active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        .hamburger.is-active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.is-active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
+        /* --- Page Banner --- */
         .page-banner {
-            background-color: var(--primary);
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.8)), 
+                        url('https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
             color: var(--white);
             text-align: center;
-            padding: 3.5rem 1rem;
+            padding: 5rem 1.5rem;
+            position: relative;
         }
 
+        .page-banner h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 0.8rem;
+        }
+
+        .page-banner p {
+            font-size: 1.15rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- Main Layout --- */
         .container {
-            max-width: 1000px;
-            margin: 3.5rem auto;
+            max-width: 1100px;
+            margin: 4rem auto;
             padding: 0 1.5rem;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 2.5rem;
         }
 
-        .info-box, .form-box {
+        /* Info Card Styling */
+        .info-box {
             background: var(--white);
             padding: 2.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            height: fit-content;
         }
 
-        .info-box h2, .form-box h2 {
-            color: var(--primary);
-            margin-bottom: 1.2rem;
+        .info-box h2 {
+            color: var(--dark);
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(0, 180, 216, 0.1);
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 0.2rem;
+        }
+
+        .contact-details p {
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .contact-details a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-details a:hover {
+            color: var(--secondary-hover);
+        }
+
+        /* Form Box Styling */
+        .form-box {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+        }
+
+        .form-box h2 {
+            color: var(--dark);
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .form-box p.form-desc {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
         }
 
         .form-group {
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.4rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.5rem;
             font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--dark);
         }
 
-        .form-group input, .form-group select, .form-group textarea {
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
             width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
+            padding: 0.9rem 1.1rem;
+            border: 1.5px solid var(--border-color);
+            border-radius: 12px;
+            font-size: 0.95rem;
+            background-color: var(--light);
+            color: var(--dark);
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            background-color: var(--white);
+            box-shadow: 0 0 0 4px rgba(0, 180, 216, 0.15);
+        }
+
+        /* Estimate Preview Banner */
+        .estimate-preview {
+            background: linear-gradient(135deg, rgba(0, 180, 216, 0.08) 0%, rgba(255, 183, 3, 0.08) 100%);
+            border: 1px dashed var(--primary);
+            padding: 1rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .estimate-preview span {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .estimate-preview strong {
+            font-size: 1.2rem;
+            color: var(--primary-dark);
         }
 
         .btn-submit {
-            background-color: var(--secondary);
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-hover) 100%);
             color: var(--dark);
             border: none;
-            padding: 0.9rem 1.8rem;
+            padding: 1rem 2rem;
             font-size: 1rem;
-            font-weight: bold;
-            border-radius: 5px;
+            font-weight: 700;
+            border-radius: 50px;
             cursor: pointer;
             width: 100%;
-            transition: background 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 183, 3, 0.35);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
         }
 
         .btn-submit:hover {
-            background-color: #d99700;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 183, 3, 0.5);
         }
 
+        /* Map Section */
         .map-section {
-            max-width: 1000px;
-            margin: 0 auto 3.5rem auto;
+            max-width: 1100px;
+            margin: 0 auto 4rem auto;
             padding: 0 1.5rem;
         }
 
         .map-container {
             background: var(--white);
             padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .map-container h2 {
+            color: var(--dark);
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.3rem;
+        }
+
+        .map-container p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
         }
 
         .map-frame {
             width: 100%;
-            height: 350px;
+            height: 380px;
             border: none;
-            border-radius: 6px;
+            border-radius: 12px;
         }
 
+        /* Success Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active .modal-card {
+            transform: translateY(0);
+        }
+
+        .modal-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 180, 216, 0.15);
+            color: var(--primary-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 1.2rem;
+        }
+
+        .modal-card h3 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- Footer --- */
         footer {
             background-color: var(--dark);
-            color: var(--white);
+            color: #94a3b8;
+            padding: 3rem 1.5rem;
             text-align: center;
-            padding: 2rem 1rem;
-            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* --- Responsive Styles --- */
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 75%;
+                max-width: 300px;
+                background-color: var(--dark);
+                flex-direction: column;
+                padding: 6rem 2rem;
+                gap: 1.8rem;
+                transition: var(--transition);
+                box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+                align-items: flex-start;
+            }
+
+            .nav-links.show {
+                right: 0;
+            }
+
+            .page-banner h1 {
+                font-size: 2.2rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">☀️ EcoClean Solar</div>
-        <nav>
+    <!-- Header Section -->
+    <header id="header">
+        <a href="index.html" class="logo">
+            <i class="fa-solid fa-sun logo-icon"></i>
+            <span>EcoClean</span>
+        </a>
+        <div class="hamburger" id="hamburger" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="nav-links" id="nav-links">
             <a href="index.html">Home</a>
             <a href="about.html">About Us</a>
             <a href="services.html">Services & Pricing</a>
@@ -160,37 +515,85 @@
         </nav>
     </header>
 
+    <!-- Page Banner -->
     <div class="page-banner">
         <h1>Request an Instant Estimate</h1>
         <p>Complete the form below to receive a personalized system maintenance quote within 24 hours.</p>
     </div>
 
+    <!-- Main Content Container -->
     <div class="container">
 
+        <!-- Contact & Operations Info -->
         <div class="info-box">
-            <h2>Contact & Operational Hours</h2>
-            <p><strong>Customer Support:</strong> +27 (0) 11 000 0000</p>
-            <br>
-            <p><strong>WhatsApp Inquiries:</strong> +27 (0) 82 000 0000</p>
-            <br>
-            <p><strong>Email:</strong> support@ecocleansolar.co.za</p>
-            <br>
-            <p><strong>Service Hours:</strong><br>Monday – Friday: 07:00 – 17:30<br>Saturday: 08:00 – 14:00</p>
-            <br>
-            <p><strong>Coverage Areas:</strong> Dispatch hubs servicing residential suburbs, industrial developments, and regional agricultural sites.</p>
+            <h2>Contact & Support</h2>
+            
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+                <div class="contact-details">
+                    <h4>Customer Support</h4>
+                    <p><a href="tel:+27110000000">+27 (0) 11 000 0000</a></p>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <div class="contact-details">
+                    <h4>WhatsApp Inquiries</h4>
+                    <p><a href="https://wa.me/27820000000" target="_blank">+27 (0) 82 000 0000</a></p>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div class="contact-details">
+                    <h4>Direct Email</h4>
+                    <p><a href="mailto:support@ecocleansolar.co.za">support@ecocleansolar.co.za</a></p>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+                <div class="contact-details">
+                    <h4>Operating Hours</h4>
+                    <p>Mon – Fri: 07:00 – 17:30</p>
+                    <p>Saturday: 08:00 – 14:00</p>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div class="contact-details">
+                    <h4>Service Coverage</h4>
+                    <p>Gauteng, surrounding residential suburbs, industrial developments, and regional sites.</p>
+                </div>
+            </div>
         </div>
 
+        <!-- Form Section -->
         <div class="form-box">
             <h2>System Details</h2>
-            <form action="#" method="post">
+            <p class="form-desc">Provide your setup details to help us calculate exact site specifications.</p>
+            
+            <form id="quoteForm">
                 <div class="form-group">
-                    <label for="fullname">Full Name</label>
-                    <input type="text" id="fullname" required placeholder="Enter full name">
+                    <label for="fullname">Full Name *</label>
+                    <input type="text" id="fullname" required placeholder="e.g. Sarah Jenkins">
                 </div>
 
                 <div class="form-group">
-                    <label for="contactnum">Phone / WhatsApp Number</label>
-                    <input type="tel" id="contactnum" required placeholder="Enter contact number">
+                    <label for="contactnum">Phone / WhatsApp Number *</label>
+                    <input type="tel" id="contactnum" required placeholder="e.g. +27 82 123 4567">
                 </div>
 
                 <div class="form-group">
@@ -204,7 +607,7 @@
 
                 <div class="form-group">
                     <label for="panels">Estimated Number of Panels</label>
-                    <input type="number" id="panels" placeholder="e.g. 12">
+                    <input type="number" id="panels" min="1" max="500" value="12" placeholder="e.g. 12">
                 </div>
 
                 <div class="form-group">
@@ -218,19 +621,28 @@
 
                 <div class="form-group">
                     <label for="notes">Additional Details / Address</label>
-                    <textarea id="notes" rows="3" placeholder="Mention roof height, pigeon issues, or specific access instructions..."></textarea>
+                    <textarea id="notes" rows="3" placeholder="Mention roof height, bird netting needs, or specific site access rules..."></textarea>
                 </div>
 
-                <button type="submit" class="btn-submit">Submit Quote Request</button>
+                <!-- Instant Estimated Cost Dynamic Preview -->
+                <div class="estimate-preview">
+                    <span>Estimated Instant Rate:</span>
+                    <strong id="estimatedPrice">R480.00</strong>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    <i class="fa-solid fa-paper-plane"></i> Submit Quote Request
+                </button>
             </form>
         </div>
 
     </div>
 
+    <!-- Map Section -->
     <div class="map-section">
         <div class="map-container">
-            <h2 style="color: var(--primary); margin-bottom: 0.5rem;">Regional Operations Hub</h2>
-            <p style="color: #666; margin-bottom: 1.5rem;">Dispatching specialized cleaning crews across Gauteng and surrounding industrial zones.</p>
+            <h2>Regional Operations Hub</h2>
+            <p>Dispatching specialized pure-water cleaning crews across Gauteng and surrounding zones.</p>
             <iframe 
                 class="map-frame" 
                 src="https://maps.google.com/maps?q=Gauteng,South%20Africa&t=&z=10&ie=UTF8&iwloc=&output=embed" 
@@ -240,9 +652,81 @@
         </div>
     </div>
 
+    <!-- Success Confirmation Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-card">
+            <div class="modal-icon">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3>Quote Received!</h3>
+            <p>Thank you for submitting your details. Our dispatch team will review your panel setup and send a formal estimate within 24 hours.</p>
+            <button class="btn-submit" id="closeModal">Got It</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
     <footer>
         <p>&copy; 2026 EcoClean Solar Solutions. All rights reserved.</p>
     </footer>
 
+    <!-- JavaScript Functionality -->
+    <script>
+        // 1. Sticky Header
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // 2. Mobile Nav Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('is-active');
+            navLinks.classList.toggle('show');
+        });
+
+        // 3. Live Form Price Estimator
+        const panelInput = document.getElementById('panels');
+        const systemSelect = document.getElementById('system-type');
+        const estimatedPriceDisplay = document.getElementById('estimatedPrice');
+
+        function calculateEstimate() {
+            const count = parseInt(panelInput.value) || 0;
+            const type = systemSelect.value;
+            let baseRate = 40; // Base cost per panel
+
+            if (type === 'commercial') baseRate = 30;
+            if (type === 'agricultural') baseRate = 25;
+
+            let total = Math.max(count * baseRate, 350); // Minimum service fee constraint
+            estimatedPriceDisplay.textContent = `R${total.toFixed(2)}`;
+        }
+
+        panelInput.addEventListener('input', calculateEstimate);
+        systemSelect.addEventListener('change', calculateEstimate);
+        calculateEstimate(); // Initial run
+
+        // 4. Form Submission Handling with Modal Output
+        const quoteForm = document.getElementById('quoteForm');
+        const successModal = document.getElementById('successModal');
+        const closeModal = document.getElementById('closeModal');
+
+        quoteForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Show modal response
+            successModal.classList.add('active');
+            quoteForm.reset();
+            calculateEstimate();
+        });
+
+        closeModal.addEventListener('click', () => {
+            successModal.classList.remove('active');
+        });
+    </script>
 </body>
 </html>

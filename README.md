@@ -46,5 +46,4 @@ Contains all 5 pages: index, about, services, guides, contact
 - EnergySage. “Why Cleaning Solar Panels Matters.” EnergySage Blog, 2023. Available at: https://www.energysage.com
 - GreenCape. Renewable Energy Sector Report. Cape Town: GreenCape, 2023.
 
-## Acknowledgements
-Template used NetBeans HTML5 project.
+

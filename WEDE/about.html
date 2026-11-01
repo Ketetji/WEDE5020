@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Ketetji Transport & Logistics</title>
+  <style>
+    :root {
+      --primary-blue: #0A2540;
+      --accent-orange: #FF6B00;
+      --neutral-dark: #1A202C;
+      --neutral-light: #F8FAFC;
+      --neutral-white: #FFFFFF;
+      --text-gray: #4A5568;
+      --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+    body { background-color: var(--neutral-light); color: var(--neutral-dark); line-height: 1.6; }
+
+    header { background: var(--primary-blue); color: var(--neutral-white); padding: 1.2rem 8%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+    .brand { font-size: 1.6rem; font-weight: 800; color: var(--neutral-white); text-decoration: none; }
+    .brand span { color: var(--accent-orange); }
+    nav ul { display: flex; list-style: none; gap: 2rem; }
+    nav a { color: #CBD5E1; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+    nav a:hover, nav a.active { color: var(--accent-orange); }
+
+    .page-header { background: linear-gradient(rgba(10, 37, 64, 0.9), rgba(10, 37, 64, 0.9)), url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1600&q=80') center/cover; color: var(--neutral-white); padding: 5rem 8%; text-align: center; }
+    .page-header h1 { font-size: 2.8rem; margin-bottom: 0.8rem; }
+    .page-header p { color: #E2E8F0; font-size: 1.15rem; }
+
+    .content-container { padding: 5rem 8%; max-width: 1200px; margin: 0 auto; }
+    .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; align-items: center; margin-bottom: 5rem; }
+    .about-text h2 { font-size: 2rem; color: var(--primary-blue); margin-bottom: 1.2rem; }
+    .about-text p { color: var(--text-gray); margin-bottom: 1rem; font-size: 1.05rem; }
+    
+    .leadership-card { background: var(--neutral-white); border-radius: 12px; padding: 2.5rem; box-shadow: var(--card-shadow); border-left: 6px solid var(--accent-orange); }
+    .leadership-card h3 { color: var(--primary-blue); font-size: 1.5rem; margin-bottom: 0.2rem; }
+    .leadership-card .role { color: var(--accent-orange); font-weight: 700; margin-bottom: 1rem; display: block; }
+    .leadership-card p { color: var(--text-gray); }
+
+    .values-section h2 { text-align: center; color: var(--primary-blue); font-size: 2rem; margin-bottom: 3rem; }
+    .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
+    .value-card { background: var(--neutral-white); padding: 2rem; border-radius: 10px; box-shadow: var(--card-shadow); text-align: center; }
+    .value-card h4 { color: var(--primary-blue); font-size: 1.25rem; margin-bottom: 0.8rem; }
+    .value-card p { color: var(--text-gray); font-size: 0.95rem; }
+
+    footer { background: var(--primary-blue); color: var(--neutral-white); padding: 4rem 8% 2rem; margin-top: 4rem; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
+    .footer-col h4 { font-size: 1.2rem; margin-bottom: 1.2rem; color: var(--accent-orange); }
+    .footer-col p, .footer-col a { color: #94A3B8; text-decoration: none; display: block; margin-bottom: 0.8rem; }
+    .footer-bottom { text-align: center; border-top: 1px solid #1E293B; padding-top: 2rem; color: #64748B; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="brand">Ketetji<span>Transport</span></a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="fleet.html">Our Fleet</a></li>
+        <li><a href="tracking.html">Track Shipment</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="page-header">
+    <h1>About Ketetji Transport & Logistics</h1>
+    <p>Building reliable, sustainable, and transparent freight networks across Africa.</p>
+  </div>
+
+  <main class="content-container">
+    <section class="about-grid">
+      <div class="about-text">
+        <h2>Pioneering Efficient Road Haulage</h2>
+        <p>Founded on principles of unwavering reliability and strict schedule adherence, Ketetji Transport & Logistics has grown into a trusted haulage entity serving diverse commercial sectors.</p>
+        <p>We leverage advanced telemetry, routine fleet maintenance, and highly trained drivers to guarantee that every payload—whether commercial, industrial, or bulk commodity—reaches its destination securely.</p>
+      </div>
+
+      <div class="leadership-card">
+        <h3>Ketetji Monyamane</h3>
+        <span class="role">Founder & Managing Director</span>
+        <p>"Our commitment goes beyond simply moving goods from point A to point B. We build reliable operational extensions for our clients' businesses through total transparency and safety."</p>
+      </div>
+    </section>
+
+    <section class="values-section">
+      <h2>Our Core Operational Pillars</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <h4>Uncompromised Safety</h4>
+          <p>Every vehicle in our fleet undergoes rigorous digital inspections and GPS tracking to protect your investments.</p>
+        </div>
+        <div class="value-card">
+          <h4>Punctual Execution</h4>
+          <p>We respect delivery deadlines. Optimized routes ensure maximum efficiency on long-haul routes.</p>
+        </div>
+        <div class="value-card">
+          <h4>Dedicated Support</h4>
+          <p>Direct communication channels ensure you are always updated on your cargo's journey status.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Ketetji Transport</h4>
+        <p>Your trusted long-haul logistics partner providing robust end-to-end transport management nationwide.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="about.html">About Company</a>
+        <a href="services.html">Services Portfolio</a>
+        <a href="fleet.html">Vehicle Fleet</a>
+        <a href="tracking.html">Track Freight</a>
+      </div>
+      <div class="footer-col">
+        <h4>Direct Contact</h4>
+        <p><strong>Director:</strong> Ketetji Monyamane</p>
+        <p><strong>Email:</strong> ketetjidineo@gmail.com</p>
+        <p><strong>Phone:</strong> 076 506 9956</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Ketetji Transport & Logistics. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    console.log("About page script initialized.");
+  </script>
+</body>
+</html>

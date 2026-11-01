@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Ketetji Transport & Logistics</title>
+  <style>
+    :root {
+      --primary-blue: #0A2540;
+      --accent-orange: #FF6B00;
+      --neutral-dark: #1A202C;
+      --neutral-light: #F8FAFC;
+      --neutral-white: #FFFFFF;
+      --text-gray: #4A5568;
+      --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+    body { background-color: var(--neutral-light); color: var(--neutral-dark); line-height: 1.6; }
+
+    header { background: var(--primary-blue); color: var(--neutral-white); padding: 1.2rem 8%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+    .brand { font-size: 1.6rem; font-weight: 800; color: var(--neutral-white); text-decoration: none; }
+    .brand span { color: var(--accent-orange); }
+    nav ul { display: flex; list-style: none; gap: 2rem; }
+    nav a { color: #CBD5E1; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+    nav a:hover, nav a.active { color: var(--accent-orange); }
+
+    .page-header { background: var(--primary-blue); color: var(--neutral-white); padding: 4rem 8%; text-align: center; }
+    .page-header h1 { font-size: 2.8rem; margin-bottom: 0.8rem; }
+
+    .contact-container { padding: 4rem 8%; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; }
+    
+    .contact-card { background: var(--neutral-white); border-radius: 12px; padding: 2.5rem; box-shadow: var(--card-shadow); }
+    .contact-card h3 { color: var(--primary-blue); font-size: 1.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid #F1F5F9; padding-bottom: 0.8rem; }
+
+    .contact-detail { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; }
+    .contact-detail .icon { width: 45px; height: 45px; background: rgba(255, 107, 0, 0.1); color: var(--accent-orange); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+    .contact-detail h4 { color: var(--primary-blue); font-size: 1rem; }
+    .contact-detail p, .contact-detail a { color: var(--text-gray); text-decoration: none; font-size: 0.95rem; }
+
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label { display: block; font-weight: 600; color: var(--primary-blue); margin-bottom: 0.4rem; font-size: 0.9rem; }
+    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 0.8rem; border: 1px solid #CBD5E1; border-radius: 6px; font-size: 0.95rem; }
+    
+    .success-alert { background: #DCFCE7; color: #166534; padding: 1rem; border-radius: 6px; margin-bottom: 1.5rem; display: none; font-weight: 600; text-align: center; }
+
+    footer { background: var(--primary-blue); color: var(--neutral-white); padding: 4rem 8% 2rem; margin-top: 4rem; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
+    .footer-col h4 { font-size: 1.2rem; margin-bottom: 1.2rem; color: var(--accent-orange); }
+    .footer-col p, .footer-col a { color: #94A3B8; text-decoration: none; display: block; margin-bottom: 0.8rem; }
+    .footer-bottom { text-align: center; border-top: 1px solid #1E293B; padding-top: 2rem; color: #64748B; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="brand">Ketetji<span>Transport</span></a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="fleet.html">Our Fleet</a></li>
+        <li><a href="tracking.html">Track Shipment</a></li>
+        <li><a href="contact.html" class="active">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="page-header">
+    <h1>Contact Our Dispatch Team</h1>
+    <p>Get in touch for rates, scheduled haulage, or emergency freight requests.</p>
+  </div>
+
+  <main class="contact-container">
+    <div class="contact-card">
+      <h3>Business Information</h3>
+      
+      <div class="contact-detail">
+        <div class="icon">👤</div>
+        <div>
+          <h4>Managing Director</h4>
+          <p>Ketetji Monyamane</p>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="icon">✉️</div>
+        <div>
+          <h4>Email Inquiries</h4>
+          <p><a href="mailto:ketetjidineo@gmail.com">ketetjidineo@gmail.com</a></p>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="icon">📞</div>
+        <div>
+          <h4>Phone Dispatch</h4>
+          <p><a href="tel:0765069956">076 506 9956</a></p>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="icon">📍</div>
+        <div>
+          <h4>National Operations</h4>
+          <p>Servicing Major Highways & Freight Hubs Nationwide</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-card">
+      <h3>Send Us a Message</h3>
+      <div id="formAlert" class="success-alert">Thank you! Your inquiry has been submitted. Our team will contact you shortly.</div>
+      
+      <form id="mainContactForm">
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" required placeholder="John Smith">
+        </div>
+
+        <div class="form-group">
+          <label for="emailAddr">Email Address</label>
+          <input type="email" id="emailAddr" required placeholder="john@company.co.za">
+        </div>
+
+        <div class="form-group">
+          <label for="phoneNum">Phone Number</label>
+          <input type="tel" id="phoneNum" required placeholder="076 000 0000">
+        </div>
+
+        <div class="form-group">
+          <label for="msgContent">Freight / Booking Details</label>
+          <textarea id="msgContent" rows="4" required placeholder="Detail your cargo specs, origin, and destination..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Inquiry</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Ketetji Transport</h4>
+        <p>Your trusted long-haul logistics partner providing robust end-to-end transport management nationwide.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="about.html">About Company</a>
+        <a href="services.html">Services Portfolio</a>
+        <a href="fleet.html">Vehicle Fleet</a>
+        <a href="tracking.html">Track Freight</a>
+      </div>
+      <div class="footer-col">
+        <h4>Direct Contact</h4>
+        <p><strong>Director:</strong> Ketetji Monyamane</p>
+        <p><strong>Email:</strong> ketetjidineo@gmail.com</p>
+        <p><strong>Phone:</strong> 076 506 9956</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Ketetji Transport & Logistics. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.getElementById('mainContactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const alertBox = document.getElementById('formAlert');
+      alertBox.style.display = 'block';
+      this.reset();
+      
+      setTimeout(() => {
+        alertBox.style.display = 'none';
+      }, 5000);
+    });
+  </script>
+</body>
+</html>

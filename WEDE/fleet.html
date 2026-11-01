@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Fleet | Ketetji Transport & Logistics</title>
+  <style>
+    :root {
+      --primary-blue: #0A2540;
+      --accent-orange: #FF6B00;
+      --neutral-dark: #1A202C;
+      --neutral-light: #F8FAFC;
+      --neutral-white: #FFFFFF;
+      --text-gray: #4A5568;
+      --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      --transition: all 0.3s ease;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+    body { background-color: var(--neutral-light); color: var(--neutral-dark); line-height: 1.6; }
+
+    header { background: var(--primary-blue); color: var(--neutral-white); padding: 1.2rem 8%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+    .brand { font-size: 1.6rem; font-weight: 800; color: var(--neutral-white); text-decoration: none; }
+    .brand span { color: var(--accent-orange); }
+    nav ul { display: flex; list-style: none; gap: 2rem; }
+    nav a { color: #CBD5E1; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+    nav a:hover, nav a.active { color: var(--accent-orange); }
+
+    .page-header { background: var(--primary-blue); color: var(--neutral-white); padding: 4rem 8%; text-align: center; }
+    .page-header h1 { font-size: 2.8rem; margin-bottom: 0.8rem; }
+
+    .fleet-container { padding: 4rem 8%; max-width: 1200px; margin: 0 auto; }
+    
+    /* Interactive Filter Controls */
+    .filter-bar { display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap; }
+    .filter-btn { padding: 0.6rem 1.5rem; background: var(--neutral-white); border: 1px solid #CBD5E1; border-radius: 50px; font-weight: 600; cursor: pointer; transition: var(--transition); }
+    .filter-btn.active, .filter-btn:hover { background: var(--accent-orange); color: var(--neutral-white); border-color: var(--accent-orange); }
+
+    .fleet-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+    .fleet-card { background: var(--neutral-white); border-radius: 12px; overflow: hidden; box-shadow: var(--card-shadow); transition: var(--transition); }
+    .fleet-card:hover { transform: translateY(-5px); }
+    .fleet-image-wrap { width: 100%; height: 230px; background: #e2e8f0; overflow: hidden; position: relative; }
+    .fleet-image { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+    .fleet-card:hover .fleet-image { transform: scale(1.05); }
+    
+    .fleet-info { padding: 2rem; }
+    .fleet-tag { display: inline-block; background: rgba(10, 37, 64, 0.08); color: var(--primary-blue); font-size: 0.8rem; font-weight: 700; padding: 0.2rem 0.8rem; border-radius: 4px; text-transform: uppercase; margin-bottom: 0.8rem; }
+    .fleet-info h3 { color: var(--primary-blue); font-size: 1.4rem; margin-bottom: 0.5rem; }
+    .fleet-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #E2E8F0; font-size: 0.9rem; color: var(--text-gray); }
+
+    footer { background: var(--primary-blue); color: var(--neutral-white); padding: 4rem 8% 2rem; margin-top: 4rem; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
+    .footer-col h4 { font-size: 1.2rem; margin-bottom: 1.2rem; color: var(--accent-orange); }
+    .footer-col p, .footer-col a { color: #94A3B8; text-decoration: none; display: block; margin-bottom: 0.8rem; }
+    .footer-bottom { text-align: center; border-top: 1px solid #1E293B; padding-top: 2rem; color: #64748B; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="brand">Ketetji<span>Transport</span></a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="fleet.html" class="active">Our Fleet</a></li>
+        <li><a href="tracking.html">Track Shipment</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="page-header">
+    <h1>Our Heavy Vehicle Fleet</h1>
+    <p>Engineered for maximum reliability, tracking accuracy, and heavy cargo safety.</p>
+  </div>
+
+  <main class="fleet-container">
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterFleet('all', event)">All Vehicles</button>
+      <button class="filter-btn" onclick="filterFleet('heavy', event)">Heavy Duty (30T+)</button>
+      <button class="filter-btn" onclick="filterFleet('medium', event)">Medium Cargo</button>
+    </div>
+
+    <div class="fleet-grid">
+      <!-- Vehicle 1: Super-Link Truck -->
+      <div class="fleet-card" data-category="heavy">
+        <div class="fleet-image-wrap">
+          <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80" alt="Super-link transport truck" class="fleet-image" onerror="handleImageError(this)">
+        </div>
+        <div class="fleet-info">
+          <span class="fleet-tag">Heavy Duty</span>
+          <h3>Interstate Super-Link Freightliner</h3>
+          <p>Designed for multi-province haulage handling heavy industrial and commercial shipments.</p>
+          <div class="fleet-specs">
+            <div><strong>Max Capacity:</strong> 34 Tons</div>
+            <div><strong>GPS Tracking:</strong> Live Satellite</div>
+            <div><strong>Trailer Type:</strong> Flatbed / Tautliner</div>
+            <div><strong>Route Type:</strong> Long-Haul</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vehicle 2: Cargo Truck -->
+      <div class="fleet-card" data-category="medium">
+        <div class="fleet-image-wrap">
+          <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80" alt="Medium distribution truck" class="fleet-image" onerror="handleImageError(this)">
+        </div>
+        <div class="fleet-info">
+          <span class="fleet-tag">Medium Freight</span>
+          <h3>Regional Cargo Express Truck</h3>
+          <p>Agile distribution trucks optimal for regional deliveries and fast turnaround logistics.</p>
+          <div class="fleet-specs">
+            <div><strong>Max Capacity:</strong> 14 Tons</div>
+            <div><strong>GPS Tracking:</strong> Live Telemetry</div>
+            <div><strong>Trailer Type:</strong> Enclosed Box</div>
+            <div><strong>Route Type:</strong> Regional</div>
+          </div>
+        </div>
+      </div>
+
+    <!-- Vehicle 3: Heavy Cargo Tipper Truck -->
+<div class="fleet-card" data-category="heavy">
+  <div class="fleet-image-wrap">
+    <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80" alt="Heavy Cargo Tipper Truck" class="fleet-image" onerror="handleImageError(this)">
+  </div>
+  <div class="fleet-info">
+    <span class="fleet-tag">Heavy Duty</span>
+    <h3>Heavy Cargo Tipper Truck</h3>
+    <p>Built to handle bulk aggregate, mining material, and agricultural products safely.</p>
+    <div class="fleet-specs">
+      <div><strong>Max Capacity:</strong> 28 Tons</div>
+      <div><strong>GPS Tracking:</strong> Active Telemetry</div>
+      <div><strong>Body Type:</strong> Heavy Tipper</div>
+      <div><strong>Route Type:</strong> Industrial / Bulk</div>
+    </div>
+  </div>
+</div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Ketetji Transport</h4>
+        <p>Your trusted long-haul logistics partner providing robust end-to-end transport management nationwide.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="about.html">About Company</a>
+        <a href="services.html">Services Portfolio</a>
+        <a href="fleet.html">Vehicle Fleet</a>
+        <a href="tracking.html">Track Freight</a>
+      </div>
+      <div class="footer-col">
+        <h4>Direct Contact</h4>
+        <p><strong>Director:</strong> Ketetji Monyamane</p>
+        <p><strong>Email:</strong> ketetjidineo@gmail.com</p>
+        <p><strong>Phone:</strong> 076 506 9956</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Ketetji Transport & Logistics. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Fallback handler if external image links fail to fetch
+    function handleImageError(imgElement) {
+      imgElement.src = 'https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80';
+      imgElement.onerror = null; 
+    }
+
+    // Interactive category filter script
+    function filterFleet(category, event) {
+      const buttons = document.querySelectorAll('.filter-btn');
+      const cards = document.querySelectorAll('.fleet-card');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

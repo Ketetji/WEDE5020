@@ -1,50 +1,48 @@
-# Eco Clean Solar Solutions
-**Student:** ST10527317 Ketetji Monyamane
-**Module:** WEDE5020 Part 2
+# Ketetji Transport & Logistics
 
 ## Project Overview
-Eco Clean Solar Solutions is a website for a solar panel cleaning and maintenance service in South Africa. The site educates users on why cleaning solar panels matters and offers services, guides, and contact information.
 
-## Website Goals
-- Provide information about solar cleaning services
-- Improve user experience with CSS styling and responsive layout
-- Improve SEO with sitemap.xml and semantic HTML
+Ketetji Transport & Logistics is a website developed to present a transport and logistics business. The website provides information about the company's services, fleet, shipment tracking and contact details.
 
-## File Structure
-/ public_html
-- index.html - Homepage with hero section and CTA
-- about.html - Company history and mission
-- services.html - List of cleaning and maintenance services
-- guides.html - Tips on maintaining solar panels
-- contact.html - Contact form and details
-- Style.css - Main CSS for responsive design
-- image.jpg - Homepage banner image
-- sitemap.xml - SEO sitemap for all pages
+The project was developed using HTML5, CSS3 and JavaScript, with a focus on creating an informative, user-friendly and responsive website.
 
-## Changelog
-**Part 1:**
-- Created 5 basic HTML pages with no styling
-- Basic structure and navigation
+## Website Pages
 
-**Part 2:**
-- Added Style.css with responsive layout (mobile friendly)
-- Improved navigation and footer
-- Added SEO: sitemap.xml and meta tags
-- Updated content with images and better headings
-- Updated README.md
+The website consists of six main pages:
 
-## Sitemap
-Sitemap location: /sitemap.xml
-Contains all 5 pages: index, about, services, guides, contact
+- **Home (`index.html`):** Introduces the company and provides an overview of its services.
+- **About (`about.html`):** Provides information about the company.
+- **Services (`services.html`):** Presents the available transport services and includes a freight cost calculator.
+- **Fleet (`fleet.html`):** Displays the company's vehicles and includes vehicle category filtering.
+- **Tracking (`tracking.html`):** Provides a demonstration of shipment tracking using sample tracking information.
+- **Contact (`contact.html`):** Provides contact information and a contact form.
 
-## How to Run Website
-1. Download or clone repo
-2. Open public_html/index.html in browser
+## Features
 
-## References
-- International Renewable Energy Agency (IRENA). Solar Energy: Technologies and Applications. Abu Dhabi: IRENA, 2023.
-- EnergySage. “Why Cleaning Solar Panels Matters.” EnergySage Blog, 2023. Available at: https://www.energysage.com
-- GreenCape. Renewable Energy Sector Report. Cape Town: GreenCape, 2023.
+- Navigation links between all six website pages.
+- Freight cost estimation using an interactive calculator.
+- Fleet vehicle categories with filtering functionality.
+- Demonstration shipment tracking.
+- Contact form with a confirmation message.
+- Vehicle images displayed on the fleet page.
 
-## Acknowledgements
-Template used NetBeans HTML5 project.
+## Technologies Used
+
+- HTML5 – Website structure and content.
+- CSS3 – Styling, layout and presentation.
+- JavaScript – Interactive website features.
+
+
+## Project Limitations
+
+- The shipment tracking feature is a demonstration and does not connect to a live tracking system.
+- The freight cost calculator provides estimated costs.
+- The contact form displays a confirmation message but is not connected to a backend system.
+
+## Project Name
+
+Ketetji Transport & Logistics
+
+## Developer
+
+Ketetji Dineo   
